@@ -15,4 +15,6 @@ This plot has two implemented interaction effects. The first interaction effect 
 
 The second interaction effect is a brush element appeneded to each axis in the plot that highlights all lines that pass through the brush while dimming the other lines, providing the user with more focus and clarity on how a specific category may relate to depression. This is an example of **highlighting**, as the brush element makes certain instances of the data more visible to the user. 
 
+
+
 **NOTE**: The only criticism from the previous homework not addressed was the potential implementaion of a Sankey plot. While it was in consideration, I came to the conclusion that the interaction effects I wished to implement would be better suited by a parallel coordinates plot. In addition, I found that the parallel coordinates plot was more correlated with my other two visualizations. 
