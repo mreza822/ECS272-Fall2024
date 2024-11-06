@@ -275,7 +275,7 @@ function initPieChart() {
         count: filteredData[key]
     }));
 
-    // Sst visibility state for each category if not already set
+    // set visibility state for each category if not already set
     pieData.forEach(d => {
         if (!(d.key in visibilityState)) visibilityState[d.key] = true;
     });
@@ -319,7 +319,7 @@ function initPieChart() {
         // remove hidden slices
         arcs.exit().remove();
 
-        // Add slices with animation on first enter
+        // add slices with animation on first enter
         const newArcs = arcs.enter().append('g')
             .attr('class', 'arc');
 
@@ -350,11 +350,11 @@ function initPieChart() {
                 };
             });
 
-        // For returning slices, skip animation and directly set the path
+        // for returning slices, skip animation and directly set the path
         newArcs.merge(arcs).select('path')
             .attr('d', arc);
 
-        // Add and update labels for existing arcs
+        // add and update labels for existing arcs
         newArcs.append('text')
             .attr('transform', d => `translate(${arc.centroid(d)})`)
             .attr('text-anchor', 'middle')
@@ -367,10 +367,10 @@ function initPieChart() {
     }
 
 
-    // Call updateChart to render pie slices based on visibility
+    // call updateChart to render pie slices based on visibility
     updateChart();
 
-    // Add legend for interactivity
+    // add legend for interactivity
     const legend = pieContainer.append("g")
         .attr("transform", `translate(${width - 200}, 150)`);
 
@@ -386,7 +386,7 @@ function initPieChart() {
         .style("cursor", "pointer")
         .on("click", (event, d) => {
             visibilityState[d.key] = !visibilityState[d.key];
-            updateChart(); // Re-render with updated slice visibility
+            updateChart();
         });
 
     legend.selectAll("text")
@@ -399,17 +399,17 @@ function initPieChart() {
         .style("cursor", "pointer")
         .on("click", (event, d) => {
             visibilityState[d.key] = !visibilityState[d.key];
-            updateChart(); // Re-render with updated slice visibility
+            updateChart();
         });
 
-    // Add title to the pie chart
+    // add title to the pie chart
     pieContainer.append('text')
         .attr('x', width / 2)
         .attr('y', 30)
         .style('text-anchor', 'middle')
         .style('font-weight', 'bold')
         .style('font-size', '1.5rem')
-        .text(`${selectedAttribute.charAt(0).toUpperCase() + selectedAttribute.slice(1)} Distribution`);
+        .text(`${selectedAttribute.charAt(0).toUpperCase() + selectedAttribute.slice(1)} Distribution for Depressed Students`);
 }
 
 
